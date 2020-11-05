@@ -1,5 +1,5 @@
 {
-  "name": "Hassio addons repository",
-  "url": "https://github.com/victorcerutti/hassio-addons",
-  "maintainer": "Victor Cerutti <victor.cerutti@gmail.com>"
+    "name": "Hassio addons repository",
+    "url": "https://github.com/gekorepoz/hassio-addons",
+    "maintainer": "Victor Cerutti <victor.cerutti@gmail.com>"
 }
