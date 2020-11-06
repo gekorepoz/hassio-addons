@@ -17,6 +17,16 @@ for i in `seq 0 $(($length-1))`; do
     SPEAKER="hw:0,0"
   fi
 
+  DEVICE="$(jq --raw-output ".instances[$i] .device" $CONFIG_PATH)"
+  if [ "$DEVICE" == "null" ] ; then
+    DEVICE="alsa"
+  fi
+
+  MIXER="$(jq --raw-output ".instances[$i] .mixer" $CONFIG_PATH)"
+  if [ "$MIXER" == "null" ] ; then
+    MIXER="alsa"
+  fi
+
   DEVICE_TYPE="$(jq --raw-output ".instances[$i] .device_type" $CONFIG_PATH)"
   if [ "$DEVICE_TYPE" == "null" ] ; then
     DEVICE_TYPE="speaker"
@@ -54,9 +64,9 @@ for i in `seq 0 $(($length-1))`; do
   else
     echo "[$(($i+1))/$length] Starting spotify with account $SPOTIFY_USER"
     if [ $i == $(($length-1)) ] ; then
-      librespot -n "$DEVICE_NAME" -u "$SPOTIFY_USER" -p "$SPOTIFY_PASSWORD" -m alsa "$SPEAKER" --bitrate "$BITRATE" --initial-volume	"$INITIAL_VOLUME" --device-type	"$DEVICE_TYPE"  "$ALLOW_GUESTS"
+      librespot -n "$DEVICE_NAME" -u "$SPOTIFY_USER" -p "$SPOTIFY_PASSWORD" --device "$DEVICE" --mixer "$DEVICE" "$SPEAKER" --bitrate "$BITRATE" --initial-volume	"$INITIAL_VOLUME" --device-type	"$DEVICE_TYPE"  "$ALLOW_GUESTS"
     else
-      librespot -n "$DEVICE_NAME" -u "$SPOTIFY_USER" -p "$SPOTIFY_PASSWORD" -m alsa --bitrate "$BITRATE" --initial-volume	"$INITIAL_VOLUME" --device-type	"$DEVICE_TYPE"  "$ALLOW_GUESTS" &
+      librespot -n "$DEVICE_NAME" -u "$SPOTIFY_USER" -p "$SPOTIFY_PASSWORD" --device "$DEVICE" --mixer "$DEVICE" --bitrate "$BITRATE" --initial-volume	"$INITIAL_VOLUME" --device-type	"$DEVICE_TYPE"  "$ALLOW_GUESTS" &
     fi
   fi
 
