@@ -12,10 +12,10 @@ for i in `seq 0 $(($length-1))`; do
 
   DISCOVERY_MODE="$(jq --raw-output ".instances[$i] .discovery_mode" $CONFIG_PATH)"
 
-  SPEAKER="$(jq --raw-output ".instances[$i] .speaker" $CONFIG_PATH)"
-  if [ "$SPEAKER" == "null" ] ; then
-    SPEAKER="hw:0,0"
-  fi
+  #SPEAKER="$(jq --raw-output ".instances[$i] .speaker" $CONFIG_PATH)"
+  #if [ "$SPEAKER" == "null" ] ; then
+  #  SPEAKER="hw:0,0"
+  #fi
 
   DEVICE="$(jq --raw-output ".instances[$i] .device" $CONFIG_PATH)"
   if [ "$DEVICE" == "null" ] ; then

@@ -11,10 +11,12 @@
     "hassio_role": "default",
     "options": {
         "instances": [{
-            "device_name": "Home assistant",
+            "device_name": "Hassio",
             "spotify_user": "username_or_email",
             "spotify_password": "password",
-            "speaker": "hw:0,0"
+            "device": "alsa",
+            "mixer": "alsa",
+            "bitrare": 320
         }]
     },
     "schema": {
@@ -22,7 +24,8 @@
             "device_name": "str",
             "spotify_user": "str?",
             "spotify_password": "str?",
-            "speaker": "str?",
+            "device": "match(rodio|portaudio|alsa)?",
+            "mixer": "match(softvol|alsa)?",
             "bitrate": "match(96|160|320)?",
             "allow_guests": "bool?",
             "initial_volume": "int(0,100)?",
