@@ -7,6 +7,7 @@ ENV LANG C.UTF-8
 
 # Setup base
 RUN apt-get update
+RUN apt-get install -y libasound2-plugins
 RUN apt-get install -y jq sox
 RUN apt-get install -y alsa-utils
 
