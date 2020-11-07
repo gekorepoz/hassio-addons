@@ -34,7 +34,7 @@ for i in `seq 0 $(($length-1))`; do
 
   DEVICE_NAME="$(jq --raw-output ".instances[$i] .device_name" $CONFIG_PATH)"
 
-  BITRATE="$(jq --raw-output ".instances[$i] .bitrare" $CONFIG_PATH)"
+  BITRATE="$(jq --raw-output ".instances[$i] .bitrate" $CONFIG_PATH)"
   if [ "$BITRATE" == "null" ] ; then
     BITRATE="160"
   fi
