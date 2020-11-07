@@ -1,6 +1,6 @@
 {
     "name": "Spotify connect",
-    "version": "0.5.3",
+    "version": "0.5.4",
     "slug": "spotify_connect",
     "description": "Allow device to be discovered by Spotify and play music via Spotify Connect",
     "arch": ["armhf"],
@@ -15,7 +15,6 @@
             "spotify_user": "username_or_email",
             "spotify_password": "password",
             "device": "alsa",
-            "mixer": "alsa",
             "bitrare": 320
         }]
     },

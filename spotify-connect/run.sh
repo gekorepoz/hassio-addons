@@ -64,9 +64,9 @@ for i in `seq 0 $(($length-1))`; do
   else
     echo "[$(($i+1))/$length] Starting spotify with account $SPOTIFY_USER"
     if [ $i == $(($length-1)) ] ; then
-      librespot -n "$DEVICE_NAME" -u "$SPOTIFY_USER" -p "$SPOTIFY_PASSWORD" --device "$DEVICE" --mixer "$DEVICE" "$SPEAKER" --bitrate "$BITRATE" --initial-volume	"$INITIAL_VOLUME" --device-type	"$DEVICE_TYPE"  "$ALLOW_GUESTS"
+      librespot -n "$DEVICE_NAME" -u "$SPOTIFY_USER" -p "$SPOTIFY_PASSWORD" -m "$DEVICE" --bitrate "$BITRATE" --initial-volume	"$INITIAL_VOLUME" --device-type	"$DEVICE_TYPE"  "$ALLOW_GUESTS"
     else
-      librespot -n "$DEVICE_NAME" -u "$SPOTIFY_USER" -p "$SPOTIFY_PASSWORD" --device "$DEVICE" --mixer "$DEVICE" --bitrate "$BITRATE" --initial-volume	"$INITIAL_VOLUME" --device-type	"$DEVICE_TYPE"  "$ALLOW_GUESTS" &
+      librespot -n "$DEVICE_NAME" -u "$SPOTIFY_USER" -p "$SPOTIFY_PASSWORD" -m "$DEVICE" --bitrate "$BITRATE" --initial-volume	"$INITIAL_VOLUME" --device-type	"$DEVICE_TYPE"  "$ALLOW_GUESTS" &
     fi
   fi
 
